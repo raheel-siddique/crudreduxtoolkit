@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useGetAllUsersQuery, useGetAllUsersByIdQuery } from "./services/Posts";
 
-function App() {
+const App = () => {
+  // const respone = useGetAllUsersQuery();
+  const response = useGetAllUsersByIdQuery(5);
+
+  console.log("Resposne Information: ", response.currentData.address);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* {response.data.map((posts) => {
+        return (
+          <>
+            <h1>{posts.id}</h1>
+          </>
+        );
+      })} */}
+      {/* <h1>{response.data.address}</h1> */}
+    </>
   );
-}
-
+};
 export default App;
